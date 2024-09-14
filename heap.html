@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="stylesheet" href="styles.css"/>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Heap Visualizer</title>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html" class="header">Binary Tree</a> 
+        <a href="binary_search_tree.html" class="header">Binary Search Tree</a>
+        <a href="avl_tree.html" class="header">AVL Tree</a>
+        <a href="heap.html" class="header">Heap</a>
+    </div>
+    <div class="container">
+        <div class="controls">
+            <div class="inputs">
+                <input type="number" placeholder="0-99" min="0" max="99" id="input"/>
+                <button id="add_button">Add</button>
+                <button id="remove_button">Remove</button>
+                <button id="clear_button">Clear Tree</button>
+                <button id="maxheap_button">Max Heap</button>
+                <button id="minheap_button">Min Heap</button>
+            </div>
+            <div class="numbers_added">
+                <p class="text left_space">Numbers Added</p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <!-- Add table rows dynamically -->
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="canvas_container">
+            <canvas class="canvas" id="canvas"></canvas>
+        </div>
+    </div>
+    <div id="info_bullets">
+        <h1 class="info_header">Heap Information</h1>
+        <p class="point">Point 1</p>
+        <p class="point">Point 2</p>
+        <p class="point">Point 3</p>
+        <p class="point">Point 4</p>
+        <p class="point">Point 5</p>
+    </div>
+
+    <script src="maxheap.js"></script>
+    <script src="minheap.js"></script>
+    <script>
+        document.getElementById('add_button').addEventListener('click', function() {
+            let value = document.getElementById('input').value;
+            if (value) {
+                addValue(parseInt(value));
+                document.getElementById('input').value = '';
+            }
+        });
+
+        document.getElementById('remove_button').addEventListener('click', function() {
+            removeValue();
+        });
+
+        document.getElementById('clear_button').addEventListener('click', function() {
+            clearHeap();
+        });
+
+        document.getElementById('maxheap_button').addEventListener('click', function() {
+            setHeapType('max');
+        });
+
+        document.getElementById('minheap_button').addEventListener('click', function() {
+            setHeapType('min');
+        });
+    </script>
+</body>
+</html>
